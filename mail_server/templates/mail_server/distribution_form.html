@@ -1,0 +1,15 @@
+{% extends 'mail_server/base.html' %}
+
+{% block content %}
+<div class="container">
+  <h2>{% if form.instance.pk %}Редактировать рассылку{% else %}Создать новую рассылку{% endif %}</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-sm btn-outline-success">
+      {% if form.instance.pk %}Сохранить изменения{% else %}Создать{% endif %}
+    </button>
+    <a href="{% url 'mail_server:distribution_list' %}" class="btn btn-sm btn-outline-danger">Отмена</a>
+  </form>
+</div>
+{% endblock %}

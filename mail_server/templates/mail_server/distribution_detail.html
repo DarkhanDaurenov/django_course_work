@@ -1,0 +1,30 @@
+{% extends 'mail_server/base.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card mb-4 box-shadow text-center">
+        <div class="card-header">
+          <p>Клиенты: {{ distribution.clients.all|join:", " }}</p>
+        </div>
+        <div class="card-body">
+          <p>Письмо клиенту: {{ distribution.message.title_message }}</p>
+          <p>{{ distribution.message.body_message }}</p>
+        </div>
+        <div class="card-body">
+          <p>Периодичность: {{ distribution.period }}</p>
+          <p>Статус рассылки: {{ distribution.status }}</p>
+          <a class="btn btn-sm btn-outline-primary" href="{% url 'mail_server:distribution_create' %}">Создать рассылку</a>
+          <a class="btn btn-sm btn-outline-danger" href="{% url 'mail_server:distribution_list' %}">Назад</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <a href="{% url 'mail_server:client_create' %}" class="w-100 btn btn-primary">Создать нового клиента</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% block content %}
+  <h2>Детали попытки рассылки</h2>
+  <p>Рассылка: {{ try_letter.distribution }}</p>
+  <p>Дата и время попытки: {{ try_letter.try_start_time }}</p>
+  <p>Статус попытки: {{ try_letter.try_status }}</p>
+  <p>Ответ сервера: {{ try_letter.mail_answer }}</p>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'mail_server/base.html' %}
+
+{% block content %}
+  <h2>Список попыток рассылки</h2>
+  <ul>
+    {% for try_letter in try_letters %}
+      <li><a href="{% url 'mail_server:try_letter_detail' try_letter.pk %}">{{ try_letter }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

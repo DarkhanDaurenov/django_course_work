@@ -1,0 +1,34 @@
+{% extends 'mail_server/base.html' %}
+
+{% block content %}
+<h2>Список клиентов</h2>
+<a href="{% url 'mail_server:client_create' %}" class="btn btn-primary">Создать нового клиента</a>
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Отчество</th>
+            <th>Комментарии</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for client in clients %}
+        <tr>
+            <td>{{ client.email }}</td>
+            <td>{{ client.name }}</td>
+            <td>{{ client.surname }}</td>
+            <td>{{ client.second_name }}</td>
+            <td>{{ client.comments }}</td>
+            <td>
+                <a href="{% url 'mail_server:client_detail' client.pk %}" class="btn btn-info btn-sm">Просмотр</a>
+                <a href="{% url 'mail_server:client_update' client.pk %}" class="btn btn-warning btn-sm">Редактировать</a>
+                <a href="{% url 'mail_server:client_delete' client.pk %}" class="btn btn-danger btn-sm">Удалить</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

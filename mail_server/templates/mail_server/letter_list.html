@@ -1,0 +1,25 @@
+{% extends 'mail_server/base.html' %}
+
+{% block content %}
+<h2>Список писем</h2>
+<a href="{% url 'mail_server:letter_create' %}" class="btn btn-primary">Создать новое письмо</a>
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Письмо</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for letter in letters %}
+        <tr>
+            <td>{{ letter.title_message }}</td>
+            <td>
+                <a href="{% url 'mail_server:letter_detail' letter.pk %}" class="btn btn-info btn-sm">Просмотр</a>
+                <a href="{% url 'mail_server:letter_update' letter.pk %}" class="btn btn-warning btn-sm">Редактировать</a>
+                <a href="{% url 'mail_server:letter_delete' letter.pk %}" class="btn btn-danger btn-sm">Удалить</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

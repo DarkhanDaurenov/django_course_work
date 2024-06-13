@@ -1,0 +1,7 @@
+{% extends 'mail_server/base.html' %}
+
+{% block content %}
+  <h2>{{ letter.title_message }}</h2>
+  <p>{{ letter.body_message }}</p>
+  <a href="{% url 'mail_server:letter_list' %}" class="btn btn-danger btn-sm">Назад</a>
+{% endblock %}

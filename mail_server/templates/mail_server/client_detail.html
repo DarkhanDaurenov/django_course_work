@@ -1,0 +1,15 @@
+{% extends 'mail_server/base.html' %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        {{ client.name }} {{ client.surname }} {{ client.second_name }}
+    </div>
+    <div class="card-body">
+        <p>Email: {{ client.email }}</p>
+        <p>Комментарии: {{ client.comments }}</p>
+        <a href="{% url 'mail_server:client_update' client.pk %}" class="btn btn-warning">Редактировать</a>
+        <a href="{% url 'mail_server:client_list' %}" class="btn btn-secondary">Назад</a>
+    </div>
+</div>
+{% endblock %}
