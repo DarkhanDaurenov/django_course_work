@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "django-course-work"
+version = "0.1.0"
+description = ""
+authors = ["DarkhanDaurenov <takishevdarkhan@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+psycopg2-binary = "^2.9.9"
+django = "^5.0.6"
+setuptools = "^70.0.0"
+django-crontab = "^0.7.1"
+pytz = "^2024.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
