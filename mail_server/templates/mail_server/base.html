@@ -9,14 +9,15 @@
 </head>
 <body>
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-        <h5 class="my-0 mr-md-auto font-weight-normal">Продажа товара</h5>
-        <nav class="my-2 my-md-0 mr-md-3">
-            <a class="p-2 text-dark" href="{% url 'mail_server:distribution_list' %}">Рассылки</a>
-            <a class="p-2 text-dark" href="{% url 'mail_server:client_list' %}">Клиенты</a>
-            <a class="p-2 text-dark" href="{% url 'mail_server:letter_list' %}">Письмо</a>
-            <a class="p-2 text-dark" href="{% url 'mail_server:try_letter_list' %}">Попытки</a>
-        </nav>
-    </div>
+    <h5 class="my-0 mr-md-auto font-weight-normal">Продажа товара</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="{% url 'mail_server:home' %}">Главная</a>
+        <a class="p-2 text-dark" href="{% url 'mail_server:distribution_list' %}">Рассылки</a>
+        <a class="p-2 text-dark" href="{% url 'mail_server:client_list' %}">Клиенты</a>
+        <a class="p-2 text-dark" href="{% url 'mail_server:letter_list' %}">Письмо</a>
+        <a class="p-2 text-dark" href="{% url 'mail_server:try_letter_list' %}">Попытки</a>
+        <a class="p-2 text-dark" href="{% url 'blog:post_list' %}">Блог</a>
+</div>
     <div class="container">
         {% block content %}
         {% endblock %}
