@@ -3,13 +3,14 @@ from .views import (
     ClientListView, ClientDetailView, ClientCreateView, ClientUpdateView, ClientDeleteView,
     DistributionListView, DistributionDetailView, DistributionCreateView, DistributionUpdateView,
     DistributionDeleteView, LetterListView, LetterDetailView, TryLetterListView, TryLetterDetailView, LetterCreateView,
-    LetterDeleteView, LetterUpdateView
+    LetterDeleteView, LetterUpdateView, HomeView
 )
 
 app_name = 'mail_server'
 
 urlpatterns = [
-    path('', ClientListView.as_view(), name='client_list'),
+    path('', HomeView.as_view(), name='home'),
+    path('clients/', ClientListView.as_view(), name='client_list'),
     path('clients/<int:pk>/', ClientDetailView.as_view(), name='client_detail'),
     path('clients/create/', ClientCreateView.as_view(), name='client_create'),
     path('clients/<int:pk>/edit/', ClientUpdateView.as_view(), name='client_update'),
@@ -26,6 +27,4 @@ urlpatterns = [
     path('letters/<int:pk>/delete/', LetterDeleteView.as_view(), name='letter_delete'),
     path('try-letters/', TryLetterListView.as_view(), name='try_letter_list'),
     path('try-letters/<int:pk>/', TryLetterDetailView.as_view(), name='try_letter_detail'),
-    path('letters/create/', LetterCreateView.as_view(), name='letter_create')
-
 ]
