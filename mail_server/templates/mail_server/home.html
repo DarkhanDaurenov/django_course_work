@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Главная страница</h1>
+    <p>Общее количество рассылок: {{ total_distributions }}</p>
+    <p>Количество активных рассылок: {{ active_distributions }}</p>
+    <p>Количество уникальных клиентов: {{ unique_clients }}</p>
+
+    <h2>Последние статьи из блога</h2>
+    <ul>
+        {% for post in random_posts %}
+            <li>
+                <a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a>
+                <p>{{ post.published_at }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
